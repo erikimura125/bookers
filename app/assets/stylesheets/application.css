@@ -44,14 +44,16 @@ main {
 
 .side_button {
   font-size: 13px;
-  padding-right: 5px;
+  padding-right: 10px;
   display: inline-block;
   text-align: right;
+  letter-spacing: normal;
 }
 
 .button {
   display: flex;
   flex-direction: column;
+  padding: 0 5px; 
 }
 
 .show_container,
