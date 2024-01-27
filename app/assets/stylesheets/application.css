@@ -48,3 +48,18 @@ main {
   display: inline-block;
   text-align: right;
 }
+
+.button {
+  display: flex;
+  flex-direction: column;
+}
+
+.show_content {
+  display: flex;
+}
+
+.show_content > div {
+  display: flex;
+  margin-right: 20px;
+}
+
