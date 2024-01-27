@@ -4,17 +4,22 @@
   </div>
 <% end %>
 
-<div class ="show_content">
+<div class ="show_container">
   <div class = "title">
     <h3>Title:</h3>
+  </div>
+  <div class = "title-content">
     <p><%= @book.title %></p>
   </div>
-  
+</div>
+<div class = "content-container">
   <div class ="body">
     <h3>Body:</h3>
+  </div>
+  <div class = "body-contant">
     <p><%= @book.body %></p>
   </div>
 </div>
 
 <%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "Back", '/books' %>
+<%= link_to "Back", '/books', class:'back-button' %>
