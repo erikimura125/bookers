@@ -27,6 +27,24 @@
   border-left: solid 10px  #008000;
 }
 
-header {
-  color: red;
+main {
+  margin: 50px;
+  letter-spacing: 0.1em;
+  line-height: 2.0;
+}
+
+.is_border {
+  width: 100vh;
+}
+
+.content {
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.side_button {
+  font-size: 13px;
+  padding-right: 5px;
+  display: inline-block;
+  text-align: right;
 }

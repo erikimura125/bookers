@@ -10,19 +10,19 @@
   <table class = "is_border">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th colspan = "3"></th>
+        <th width="30%">Title</th>
+        <th width="50%">Body</th>
+        <th width="20%" colspan = "3"></th>
       </tr>
     </thead>
     <% @books.each do |book| %>
     <tbody>
       <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td><%= link_to "Show", book_path(book.id) %></td>
-        <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-        <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+        <td class = "content"><%= book.title %></td>
+        <td class = "content"><%= book.body %></td>
+        <td class = "side_button"><%= link_to "Show", book_path(book.id) %></td>
+        <td class = "side_button"><%= link_to "Edit", edit_book_path(book.id) %></td>
+        <td class = "side_button"><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
       </tr>
     </tbody>
     <% end %>
