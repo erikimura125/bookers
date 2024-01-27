@@ -1,57 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <head>
 
-    <% if flash[:notice] %>
-      <div class = "flash">
-        <%= flash[:notice] %>
-      </div>
+<% if flash[:notice] %>
+  <div class = "flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+    
+<div class = "list_display">
+  <h2>Books</h2>
+  <table class = "is_border">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th colspan = "3"></th>
+      </tr>
+    </thead>
+    <% @books.each do |book| %>
+    <tbody>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td><%= link_to "Show", book_path(book.id) %></td>
+        <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+        <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+      </tr>
+    </tbody>
     <% end %>
-  </head>
-  
-  <body>
-    <div class = "list_display">
-      <h2>Books</h2>
-      <% @books.each do |book| %>
-        <table class = "is_border">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Body</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= book.title %></td>
-              <td><%= book.body %></td>
-              <td><%= link_to "Show", book_path(book.id) %></td>
-              <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-              <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
-            </tr>
-          </tbody>
-        </table>
+  </table>
+</div>
+<div class ="new_post">
+  <h3>New book</h3>
+  <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-    </div>
-    <div class ="new_post">
-      <h3>New book</h3>
-      <% if @book.errors.any? %>
-        <%= @book.errors.count %>errors prohibited this book from being saved:
-        <ul>
-          <% @book.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+    </ul>
+  <% end %>
       
-      <%= form_with model: @book, url: '/books',method: :post do |f| %>
-        <h5>Title</h5>
-        <%= f.text_field :title %>
+  <%= form_with model: @book, url: '/books',method: :post do |f| %>
+    <h5>Title</h5>
+    <%= f.text_field :title %>
         
-        <h5>Body</h5>
-        <%= f.text_area :body %>
+    <h5>Body</h5>
+    <%= f.text_area :body %>
         
-        <%= f.submit 'Create Book' %>
-      <% end %>
-    </div>
-  </body>
-</html
+    <%= f.submit 'Create Book' %>
+  <% end %>
+</div>

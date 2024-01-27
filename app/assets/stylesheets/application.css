@@ -18,3 +18,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.flash {
+  color: #008000;
+  padding: 10px;
+  margin: 30px;
+  background: #f5f5dc;
+  border-left: solid 10px  #008000;
+}
+
+header {
+  color: red;
+}
